@@ -1,0 +1,8 @@
+.navbarContainer {
+  padding: 2rem;
+  background-color: var(--green30);
+}
+
+.active{}
+
+.inactive{}

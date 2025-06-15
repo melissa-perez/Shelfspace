@@ -5,20 +5,21 @@ import BooksPage from './pages/BooksPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import Navbar from './shared/Navbar/Navbar';
-
+import Footer from './shared/Footer/Footer';
 import './App.css';
 
 function App() {
   return (
     <>
       <Navbar />
-      <div>
+      <div className="appContainer">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/books" element={<BooksPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      <Footer />
     </>
   );
 }

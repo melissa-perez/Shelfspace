@@ -1,0 +1,25 @@
+:root {
+  --orange10: #fff6ba;
+  --yellow20: #ffffa4;
+  --green30: #ddfeab;
+  --green40: #d2f5dd;
+  --green50: #95efd7;
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings: 'wdth' 100;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+h1,
+h2 {
+  font-family: 'Rubik', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+}
