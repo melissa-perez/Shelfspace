@@ -10,7 +10,7 @@ function HomePage() {
       </p>
 
       <div>
-        <p>At-a-glance stats</p>
+        <p>📚At-a-glance stats</p>
         <ul>
           <li>Total books: </li>
           <li>Currently reading: </li>
