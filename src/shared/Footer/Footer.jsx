@@ -5,7 +5,6 @@ function Footer() {
   return (
     <div className={`container ${footerStyles.footerContainer}`}>
       <span className={footerStyles.bold}>
-        {' '}
         &#169;{currentDate.getFullYear()} Melissa Perez
       </span>
     </div>
