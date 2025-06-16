@@ -6,9 +6,25 @@ import navbarStyles from './Navbar.module.css';
 function Navbar() {
   return (
     <div className={`container ${navbarStyles.navbarContainer}`}>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/books">Books</NavLink>
+      <nav className={navbarStyles.nav}>
+        <NavLink
+          to="/"
+          className={({ isActive }) => {
+            if (isActive) return navbarStyles.active;
+            return navbarStyles.inactive;
+          }}
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/books"
+          className={({ isActive }) => {
+            if (isActive) return navbarStyles.active;
+            return navbarStyles.inactive;
+          }}
+        >
+          Bookshelf
+        </NavLink>
       </nav>
     </div>
   );

@@ -3,6 +3,24 @@
   background-color: var(--green30);
 }
 
-.active{}
+.nav {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 1rem;
+}
 
-.inactive{}
+.active {
+  color: green;
+  text-decoration: underline;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.inactive,
+.inactive:visited {
+  color: blue;
+  font-weight: 200;
+  font-style: italic;
+}
