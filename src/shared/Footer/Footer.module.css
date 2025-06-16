@@ -1,0 +1,10 @@
+.footerContainer {
+  padding: 2rem;
+  background-color: var(--green50);
+  justify-content: center;
+  align-items: center;
+}
+
+.bold {
+  font-weight: 600;
+}
