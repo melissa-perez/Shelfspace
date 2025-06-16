@@ -1,0 +1,18 @@
+.input {
+  height: 1.5rem;
+  width: 25em;
+  margin: 0 1rem;
+}
+
+.label {
+  font-style: italic;
+}
+
+.form {
+  margin: 1rem;
+}
+
+.button {
+  height: 1.5rem;
+  font-weight: 700;
+}

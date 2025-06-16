@@ -1,8 +1,9 @@
-import heroStyles from './HomePage.module.css';
+import homePageStyles from './HomePage.module.css';
 import '../../../src/index.css';
+
 function HomePage() {
   return (
-    <div className={`container ${heroStyles.homeContainer}`}>
+    <div className={`container ${homePageStyles.homeContainer}`}>
       <h1>Shelfspace</h1>
       <h2>👋Welcome, dear readers!</h2>
       <p>
@@ -19,7 +20,10 @@ function HomePage() {
         </ul>
       </div>
       <p>Progress bar would go here.</p>
-      <img className={heroStyles.hero} src="susan-q-yin-books-unsplash.jpg" />
+      <img
+        className={homePageStyles.hero}
+        src="susan-q-yin-books-unsplash.jpg"
+      />
     </div>
   );
 }

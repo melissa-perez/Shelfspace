@@ -1,0 +1,4 @@
+.booksContainer {
+  flex-direction: column;
+  padding: 1rem;
+}

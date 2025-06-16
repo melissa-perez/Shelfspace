@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router';
 
 import HomePage from './pages/HomePage/HomePage';
-import BooksPage from './pages/BooksPage';
+import BooksPage from './pages/BooksPage/BooksPage';
 import NotFoundPage from './pages/NotFoundPage';
 
 import Navbar from './shared/Navbar/Navbar';
