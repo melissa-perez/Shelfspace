@@ -23,7 +23,6 @@ function BookSearch() {
     const fetchBooks = async () => {
       setIsLoading(true);
       const url = `https://openlibrary.org/search.json?title=${title}`;
-      console.log(url);
       const options = {
         method: 'GET',
       };
@@ -35,9 +34,16 @@ function BookSearch() {
             'Something went wrong with the request. Try again later.';
           throw new Error(errorMsg);
         }
-        console.log(response);
         const { docs } = await response.json();
-        console.log(docs);
+        const fetchedBooks = docs.map((book) => {
+          const item = {
+            title: book.title || 'Untitled',
+            author: book.author_name?.[0] || 'Unknown Author',
+            cover_i: book.cover_i || null,
+          };
+          return item;
+        });
+        setResults(fetchedBooks);
       } catch (error) {
         console.error(error);
         setErrorMessage(error);
@@ -68,12 +74,16 @@ function BookSearch() {
           type="button"
           onClick={() => {
             setLocalTitle('');
+            setResults([]);
           }}
         >
           Clear
         </button>
       </form>
-      {isLoading ? <p>Loading results....</p> : <></>}
+      {!isLoading && results.length === 0 && title !== '' && (
+        <p>No books found. Try a different search term.</p>
+      )}
+      <BookResults isLoading={isLoading} results={results} />
     </>
   );
 }
