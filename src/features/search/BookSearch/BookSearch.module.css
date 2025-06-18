@@ -1,7 +1,6 @@
 .input {
   height: 1.5rem;
-  width: 25em;
-  margin: 0 1rem;
+  margin: 0rem 0rem 1rem 1rem;
 }
 
 .label {
@@ -14,5 +13,10 @@
 
 .button {
   height: 1.5rem;
-  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.errorMessage {
+  padding-left: 1rem;
+  font-weight: 900;
 }

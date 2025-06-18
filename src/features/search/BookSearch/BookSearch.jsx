@@ -9,7 +9,7 @@ function BookSearch() {
   const [localTitle, setLocalTitle] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('aa');
 
   useEffect(() => {
     const debounce = setTimeout(() => {
@@ -44,6 +44,7 @@ function BookSearch() {
           return item;
         });
         setResults(fetchedBooks);
+        setErrorMessage('');
       } catch (error) {
         console.error(error);
         setErrorMessage(error);
@@ -53,9 +54,8 @@ function BookSearch() {
     };
     fetchBooks();
   }, [title]);
-
   return (
-    <>
+    <div>
       <form className={bookSearchStyles.form}>
         <label className={bookSearchStyles.label} htmlFor={'bookInput'}>
           Book Title
@@ -71,6 +71,7 @@ function BookSearch() {
           placeholder="via Open Library API..."
         />
         <button
+          className={bookSearchStyles.button}
           type="button"
           onClick={() => {
             setLocalTitle('');
@@ -81,10 +82,27 @@ function BookSearch() {
         </button>
       </form>
       {!isLoading && results.length === 0 && title !== '' && (
-        <p>No books found. Try a different search term.</p>
+        <p className={bookSearchStyles.errorMessage}>
+          🚫No books found. Try a different book title.
+        </p>
+      )}
+      {errorMessage && (
+        <div>
+          <p className={bookSearchStyles.errorMessage}>
+            An error occured: {errorMessage}
+          </p>
+          <button
+            className={bookSearchStyles.button}
+            onClick={() => {
+              setErrorMessage('');
+            }}
+          >
+            Dismiss Error Message
+          </button>
+        </div>
       )}
       <BookResults isLoading={isLoading} results={results} />
-    </>
+    </div>
   );
 }
 
