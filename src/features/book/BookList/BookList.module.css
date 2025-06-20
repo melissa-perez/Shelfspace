@@ -1,3 +1,13 @@
 .list {
   list-style: none;
 }
+
+.spacing {
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router';
 
 import BookCard from '../BookCard/BookCard';
 
+import '../../../index.css';
 import bookListStyles from './BookList.module.css';
 
 function BookList({ results }) {
@@ -47,14 +48,22 @@ function BookList({ results }) {
           </li>
         ))}
       </ul>
-      <div>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+      <div className={`container ${bookListStyles.spacing}`}>
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+          className={bookListStyles.button}
+        >
           Previous
         </button>
         <span>
           Page {currentPage} of {totalPages}
         </span>
-        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className={bookListStyles.button}
+        >
           Next
         </button>
       </div>

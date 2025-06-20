@@ -9,7 +9,7 @@ function BookSearch() {
   const [localTitle, setLocalTitle] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('aa');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const debounce = setTimeout(() => {
@@ -55,7 +55,7 @@ function BookSearch() {
     fetchBooks();
   }, [title]);
   return (
-    <div>
+    <div className={bookSearchStyles.searchContainer}>
       <form className={bookSearchStyles.form}>
         <label className={bookSearchStyles.label} htmlFor={'bookInput'}>
           Book Title
@@ -74,6 +74,7 @@ function BookSearch() {
           className={bookSearchStyles.button}
           type="button"
           onClick={() => {
+            setTitle('');
             setLocalTitle('');
             setResults([]);
           }}

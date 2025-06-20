@@ -17,6 +17,9 @@ function BookCard({ title, author, coverImage }) {
         <hr />
         <p className={bookCardStyles.author}>{author}</p>
       </div>
+      <div className={`container ${bookCardStyles.button}`}>
+        <button>Add to bookshelf</button>
+      </div>
     </div>
   );
 }
