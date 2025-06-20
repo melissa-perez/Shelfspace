@@ -37,9 +37,10 @@ function BookSearch() {
         const { docs } = await response.json();
         const fetchedBooks = docs.map((book) => {
           const item = {
+            bookKey: book.key,
             title: book.title || 'Untitled',
             author: book.author_name?.[0] || 'Unknown Author',
-            cover_i: book.cover_i || null,
+            coverImage: book.cover_i || null,
           };
           return item;
         });

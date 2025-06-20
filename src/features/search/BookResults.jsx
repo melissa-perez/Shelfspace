@@ -6,7 +6,7 @@ function BookResults({ isLoading, results }) {
       {isLoading ? (
         <span>Loading results....</span>
       ) : results.length !== 0 ? (
-        <BookList results={results} />
+        <BookList results={results} showAddButton={true} />
       ) : (
         <></>
       )}

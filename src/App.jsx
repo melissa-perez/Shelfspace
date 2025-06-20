@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router';
+import { BookshelfProvider } from './context/BookshelfContext';
 
 import HomePage from './pages/HomePage/HomePage';
 import BooksPage from './pages/BooksPage/BooksPage';
@@ -13,11 +14,13 @@ function App() {
     <>
       <Navbar />
       <div className="appContainer">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/books" element={<BooksPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <BookshelfProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/books" element={<BooksPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </BookshelfProvider>
       </div>
       <Footer />
     </>

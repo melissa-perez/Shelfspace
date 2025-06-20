@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { BookshelfContext } from '../../../context/BookshelfContext';
+
 import '../../../index.css';
 import bookCardStyles from './BookCard.module.css';
 
-function BookCard({ title, author, coverImage }) {
+function BookCard({ title, author, coverImage, bookKey, showAddButton }) {
+  const { addBookToShelf } = useContext(BookshelfContext);
   return (
     <div className={`container ${bookCardStyles.card}`}>
       {coverImage !== null ? (
@@ -18,7 +22,21 @@ function BookCard({ title, author, coverImage }) {
         <p className={bookCardStyles.author}>{author}</p>
       </div>
       <div className={`container ${bookCardStyles.button}`}>
-        <button>Add to bookshelf</button>
+        {showAddButton && (
+          <button
+            onClick={() =>
+              addBookToShelf({
+                title,
+                author,
+                coverImage,
+                bookKey,
+                status: "tbr"
+              })
+            }
+          >
+            Add to bookshelf
+          </button>
+        )}
       </div>
     </div>
   );

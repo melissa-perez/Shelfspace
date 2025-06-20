@@ -6,7 +6,7 @@ import BookCard from '../BookCard/BookCard';
 import '../../../index.css';
 import bookListStyles from './BookList.module.css';
 
-function BookList({ results }) {
+function BookList({ results, showAddButton }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const itemsPerPage = 10;
@@ -17,7 +17,6 @@ function BookList({ results }) {
     indexOfFirstBook,
     indexOfFirstBook + itemsPerPage
   );
-
   useEffect(() => {
     if (totalPages > 0) {
       if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
@@ -38,12 +37,14 @@ function BookList({ results }) {
   return (
     <div>
       <ul className={bookListStyles.list}>
-        {currentBooks.map((book, index) => (
-          <li key={index}>
+        {currentBooks.map((book) => (
+          <li key={book.bookKey}>
             <BookCard
               title={book.title}
               author={book.author}
-              coverImage={book.cover_i}
+              coverImage={book.coverImage}
+              bookKey={book.bookKey}
+              showAddButton={showAddButton}
             />
           </li>
         ))}

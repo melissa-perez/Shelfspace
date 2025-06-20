@@ -23,6 +23,7 @@ function HomePage() {
       <img
         className={homePageStyles.hero}
         src="susan-q-yin-books-unsplash.jpg"
+        alt="Bookshelfs with books in a library setting"
       />
     </div>
   );
