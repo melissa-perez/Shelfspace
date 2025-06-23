@@ -1,15 +1,32 @@
-# React + Vite
+# Shelfspace
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+This React + Vite application is a book tracking app that utilizes the Open Libtary API. Users can search book titles and add them to their list. Once added, they can be viewed, deleted, or have their reading status updated. The list is stored in local storage on the web browser. The reading status stats are displayed on the home page.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Dependencies
 
-## Expanding the ESLint configuration
+There are dependencies that manipulate the DOM directly. But this application uses:
+- `react`
+- `react-dom`
+- `react-router`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How to install and run
+
+1. Clone the app into your local workspace
+2. `npm install`
+3. To start the development server, use: `npm run dev`, app run on http://localhost:5173/
+
+
+## API connection
+
+There are no environment variables required to set-up for Open Library. Just search using the input bar.
+
+## Credentials
+
+No credentials required.
+
+## Image acknowledgements
 
 - <a href="https://www.flaticon.com/free-icons/bookshelf" title="bookshelf icons">Bookshelf icons created by smalllikeart - Flaticon</a>
 - Photo by <a href="https://unsplash.com/@syinq?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Susan Q Yin</a> on <a href="https://unsplash.com/photos/books-on-brown-wooden-shelf-2JIvboGLeho?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
