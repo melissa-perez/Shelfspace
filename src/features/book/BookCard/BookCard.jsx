@@ -35,7 +35,6 @@ function BookCard({
       <div className={`container ${bookCardStyles.button}`}>
         {showAddButton && (
           <Button
-            className={bookCardStyles.spacing}
             title={'Add to bookshelf'}
             handler={() =>
               addBookToShelf({

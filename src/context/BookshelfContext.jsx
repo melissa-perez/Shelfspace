@@ -14,6 +14,7 @@ function BookshelfProvider({ children }) {
       return;
     }
     const updated = [...bookshelf, book];
+    window.alert('Added book to bookshelf.');
     setBookshelf(updated);
     localStorage.setItem('bookshelf', JSON.stringify(updated));
   };
@@ -21,6 +22,7 @@ function BookshelfProvider({ children }) {
     const updated = bookshelf.filter(
       (book) => book.bookKey !== bookKeyToDelete.bookKey
     );
+    window.alert('Removed book from bookshelf.');
     setBookshelf(updated);
   };
   return (

@@ -1,7 +1,9 @@
+import bookFormStyles from './BookForm.module.css';
+
 function BookForm() {
   return (
     <form>
-      <label>Reading Status</label>
+      <label className={bookFormStyles.label}>Reading Status </label>
       <select>
         <option value="tbr">To be read(TBR)</option>
         <option value="reading">Reading</option>

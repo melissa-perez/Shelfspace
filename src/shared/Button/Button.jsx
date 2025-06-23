@@ -1,5 +1,11 @@
+import buttonStyles from './Button.module.css';
+
 function Button({ title, handler }) {
-  return <button onClick={handler}>{title}</button>;
+  return (
+    <button className={buttonStyles.spacing} onClick={handler}>
+      {title}
+    </button>
+  );
 }
 
 export default Button;

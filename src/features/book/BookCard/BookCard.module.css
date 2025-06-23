@@ -12,9 +12,10 @@
 }
 
 .spacing {
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .button {
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
