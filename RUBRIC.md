@@ -39,7 +39,7 @@
     - [ ] Details on any added dependencies, especially those that may manipulate the DOM directly.
     - [ ] Instructions on how to install and run
     - [ ] Any details needed for an API connection
-      - [ ] If credentials needed, indicate services used
+      - [x] If credentials needed, indicate services used
 - [x] Root should NOT contain:
   - [x] node_modules/
   - [x] .env.local or any other file with sensitive information
@@ -75,7 +75,7 @@
 - [x] Project uses at least:
   - [x] 1 component that takes `children` props
   - [ ] 2 re-usable components each containing 2 or more html elements/sub-components + uses props
-  - [ ] 4 conditionally rendered components or elements.
+  - [x] 4 conditionally rendered components or elements.
   - [x] 1 controlled component form with at least 1 validated field.
   - [x] 2 `useEffect` calls.
   - [ ] 1 `useCallback`.
