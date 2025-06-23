@@ -6,7 +6,12 @@ import BookCard from '../BookCard/BookCard';
 import '../../../index.css';
 import bookListStyles from './BookList.module.css';
 
-function BookList({ results, showButton }) {
+function BookList({
+  results,
+  showAddButton,
+  showDeleteButton,
+  showUpdateForm,
+}) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const itemsPerPage = 10;
@@ -44,7 +49,9 @@ function BookList({ results, showButton }) {
               author={book.author}
               coverImage={book.coverImage}
               bookKey={book.bookKey}
-              showButton={showButton}
+              showAddButton={showAddButton}
+              showDeleteButton={showDeleteButton}
+              showUpdateForm={showUpdateForm}
             />
           </li>
         ))}

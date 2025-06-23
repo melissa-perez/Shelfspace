@@ -1,10 +1,21 @@
 import { useContext } from 'react';
 import { BookshelfContext } from '../../../context/BookshelfContext';
 
+import Button from '../../../shared/Button/Button';
+import BookForm from '../BookForm/BookForm';
+
 import '../../../index.css';
 import bookCardStyles from './BookCard.module.css';
 
-function BookCard({ title, author, coverImage, bookKey, showButton }) {
+function BookCard({
+  title,
+  author,
+  coverImage,
+  bookKey,
+  showAddButton,
+  showDeleteButton,
+  showUpdateForm,
+}) {
   const { addBookToShelf, deleteBookInShelf } = useContext(BookshelfContext);
   return (
     <div className={`container ${bookCardStyles.card}`}>
@@ -22,36 +33,35 @@ function BookCard({ title, author, coverImage, bookKey, showButton }) {
         <p className={bookCardStyles.author}>{author}</p>
       </div>
       <div className={`container ${bookCardStyles.button}`}>
-        {showButton && (
-          <div>
-            <button
-              onClick={() =>
-                addBookToShelf({
-                  title,
-                  author,
-                  coverImage,
-                  bookKey,
-                  status: 'tbr',
-                })
-              }
-            >
-              Add to bookshelf
-            </button>
-            <button
-              onClick={() =>
-                deleteBookInShelf({
-                  bookKey,
-                })
-              }
-            >
-              Delete off bookshelf
-            </button>
-          </div>
+        {showAddButton && (
+          <Button
+            className={bookCardStyles.spacing}
+            title={'Add to bookshelf'}
+            handler={() =>
+              addBookToShelf({
+                title,
+                author,
+                coverImage,
+                bookKey,
+                status: 'tbr',
+              })
+            }
+          />
         )}
+        {showDeleteButton && (
+          <Button
+            title={'Remove from bookshelf'}
+            handler={() =>
+              deleteBookInShelf({
+                bookKey,
+              })
+            }
+          />
+        )}
+        {showUpdateForm && <BookForm />}
       </div>
     </div>
   );
 }
 
 export default BookCard;
-/*TODO: change showButton to showAdd and showDelete*/
