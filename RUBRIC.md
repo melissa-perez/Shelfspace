@@ -74,7 +74,7 @@
 - [x] All communication with external data sources should be done asynchronously.
 - [x] Project uses at least:
   - [x] 1 component that takes `children` props
-  - [ ] 2 re-usable components each containing 2 or more html elements/sub-components + uses props
+  - [x] 2 re-usable components each containing 2 or more html elements/sub-components + uses props
   - [x] 4 conditionally rendered components or elements.
   - [x] 1 controlled component form with at least 1 validated field.
   - [x] 2 `useEffect` calls.
@@ -112,15 +112,15 @@
 ### Functionality
 
 - [x] All components and any user interactions should be error-free (excluding anything beyond student's control, such as API uptime). Warnings are acceptable.
-- [ ] The app should never crash.
+- [x] The app should never crash.
 - [x] StrictMode must remain in place in main.jsx
 - [x] Form inputs and labels must be properly associated with each other.
 - [x] Any foreseeable network or process errors must be caught and communicated to the user, as appropriate, through the UI.
 - [x] App allows user to interact with data central to the purpose of the app.
   - [x] Create
   - [x] Read
-  - [ ] Update
-  - [ ] Delete (optional)
+  - [x] Update
+  - [x] Delete (optional)
 - [x] Persists data using an API and/or Local Storage or IndexedDB.
 
 ## Appearance/UX

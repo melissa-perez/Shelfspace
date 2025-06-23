@@ -1,7 +1,11 @@
+import { useContext } from 'react';
+import { BookshelfContext } from '../../context/BookshelfContext';
+
 import homePageStyles from './HomePage.module.css';
 import '../../../src/index.css';
 
 function HomePage() {
+  const { stats } = useContext(BookshelfContext);
   return (
     <div className={`container ${homePageStyles.homeContainer}`}>
       <h1>Shelfspace</h1>
@@ -14,9 +18,10 @@ function HomePage() {
       <div>
         <p>📚At a glance stats</p>
         <ul>
-          <li>Total books: </li>
-          <li>Currently reading: </li>
-          <li>Finished books: </li>
+          <li>Total books: {stats.total}</li>
+          <li>Currently reading: {stats.reading}</li>
+          <li>Books to read: {stats.tbr}</li>
+          <li>Finished books: {stats.finished}</li>
         </ul>
       </div>
       <p>Progress bar would go here.</p>

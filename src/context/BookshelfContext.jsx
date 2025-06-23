@@ -43,6 +43,12 @@ function BookshelfProvider({ children }) {
       window.alert('Book not found.');
     }
   };
+  const stats = {
+    total: bookshelf.length,
+    tbr: bookshelf.filter((b) => b.status === 'tbr').length,
+    reading: bookshelf.filter((b) => b.status === 'reading').length,
+    finished: bookshelf.filter((b) => b.status === 'finished').length,
+  };
   return (
     <BookshelfContext.Provider
       value={{
@@ -50,6 +56,7 @@ function BookshelfProvider({ children }) {
         addBookToShelf,
         deleteBookInShelf,
         updateBookStatusInShelf,
+        stats
       }}
     >
       {children}
