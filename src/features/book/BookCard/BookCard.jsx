@@ -12,6 +12,7 @@ function BookCard({
   author,
   coverImage,
   bookKey,
+  status,
   showAddButton,
   showDeleteButton,
   showUpdateForm,
@@ -57,7 +58,7 @@ function BookCard({
             }
           />
         )}
-        {showUpdateForm && <BookForm />}
+        {showUpdateForm && <BookForm bookKey={bookKey} status={status} />}
       </div>
     </div>
   );

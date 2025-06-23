@@ -46,6 +46,7 @@ function BookList({
           <li key={book.bookKey}>
             <BookCard
               title={book.title}
+              status={book.status}
               author={book.author}
               coverImage={book.coverImage}
               bookKey={book.bookKey}
