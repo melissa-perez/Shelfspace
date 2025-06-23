@@ -16,7 +16,7 @@ function BooksPage() {
       <BookSearch />
       <BookForm />
       <h2>🔖My Bookshelf</h2>
-      <BookList results={bookshelf} showAddButton={false} />
+      <BookList results={bookshelf} showButton={false} />
     </div>
   );
 }

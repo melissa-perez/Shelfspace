@@ -6,7 +6,7 @@ import BookCard from '../BookCard/BookCard';
 import '../../../index.css';
 import bookListStyles from './BookList.module.css';
 
-function BookList({ results, showAddButton }) {
+function BookList({ results, showButton }) {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const itemsPerPage = 10;
@@ -44,30 +44,32 @@ function BookList({ results, showAddButton }) {
               author={book.author}
               coverImage={book.coverImage}
               bookKey={book.bookKey}
-              showAddButton={showAddButton}
+              showButton={showButton}
             />
           </li>
         ))}
       </ul>
-      <div className={`container ${bookListStyles.spacing}`}>
-        <button
-          onClick={handlePreviousPage}
-          disabled={currentPage === 1}
-          className={bookListStyles.button}
-        >
-          Previous
-        </button>
-        <span>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-          className={bookListStyles.button}
-        >
-          Next
-        </button>
-      </div>
+      {results.length > 0 && (
+        <div className={`container ${bookListStyles.spacing}`}>
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className={bookListStyles.button}
+          >
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={handleNextPage}
+            disabled={currentPage === totalPages}
+            className={bookListStyles.button}
+          >
+            Next
+          </button>
+        </div>
+      )}
     </div>
   );
 }

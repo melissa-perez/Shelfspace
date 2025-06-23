@@ -4,8 +4,8 @@ import { BookshelfContext } from '../../../context/BookshelfContext';
 import '../../../index.css';
 import bookCardStyles from './BookCard.module.css';
 
-function BookCard({ title, author, coverImage, bookKey, showAddButton }) {
-  const { addBookToShelf } = useContext(BookshelfContext);
+function BookCard({ title, author, coverImage, bookKey, showButton }) {
+  const { addBookToShelf, deleteBookInShelf } = useContext(BookshelfContext);
   return (
     <div className={`container ${bookCardStyles.card}`}>
       {coverImage !== null ? (
@@ -22,20 +22,31 @@ function BookCard({ title, author, coverImage, bookKey, showAddButton }) {
         <p className={bookCardStyles.author}>{author}</p>
       </div>
       <div className={`container ${bookCardStyles.button}`}>
-        {showAddButton && (
-          <button
-            onClick={() =>
-              addBookToShelf({
-                title,
-                author,
-                coverImage,
-                bookKey,
-                status: "tbr"
-              })
-            }
-          >
-            Add to bookshelf
-          </button>
+        {showButton && (
+          <div>
+            <button
+              onClick={() =>
+                addBookToShelf({
+                  title,
+                  author,
+                  coverImage,
+                  bookKey,
+                  status: 'tbr',
+                })
+              }
+            >
+              Add to bookshelf
+            </button>
+            <button
+              onClick={() =>
+                deleteBookInShelf({
+                  bookKey,
+                })
+              }
+            >
+              Delete off bookshelf
+            </button>
+          </div>
         )}
       </div>
     </div>
@@ -43,3 +54,4 @@ function BookCard({ title, author, coverImage, bookKey, showAddButton }) {
 }
 
 export default BookCard;
+/*TODO: change showButton to showAdd and showDelete*/

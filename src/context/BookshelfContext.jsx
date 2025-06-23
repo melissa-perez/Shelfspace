@@ -8,18 +8,25 @@ function BookshelfProvider({ children }) {
     return saved ? JSON.parse(saved) : [];
   });
   const addBookToShelf = (book) => {
-    const alreadyInShelf = bookshelf.find((b) => b.key === book.key);
+    const alreadyInShelf = bookshelf.find((b) => b.bookKey === book.bookKey);
     if (alreadyInShelf) {
       window.alert('This book already exists in your bookshelf.');
       return;
     }
-
     const updated = [...bookshelf, book];
     setBookshelf(updated);
     localStorage.setItem('bookshelf', JSON.stringify(updated));
   };
+  const deleteBookInShelf = (bookKeyToDelete) => {
+    const updated = bookshelf.filter(
+      (book) => book.bookKey !== bookKeyToDelete.bookKey
+    );
+    setBookshelf(updated);
+  };
   return (
-    <BookshelfContext.Provider value={{ bookshelf, addBookToShelf }}>
+    <BookshelfContext.Provider
+      value={{ bookshelf, addBookToShelf, deleteBookInShelf }}
+    >
       {children}
     </BookshelfContext.Provider>
   );
