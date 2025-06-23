@@ -1,0 +1,26 @@
+.input {
+  height: 1.5rem;
+  margin: 0rem 0rem 1rem 1rem;
+}
+
+.label {
+  font-style: italic;
+}
+
+.form {
+  margin: 1rem;
+}
+
+.button {
+  height: 1.5rem;
+  margin-left: 1rem;
+}
+
+.errorMessage {
+  padding-left: 1rem;
+  font-weight: 900;
+}
+
+.searchContainer {
+  padding: 1rem;
+}

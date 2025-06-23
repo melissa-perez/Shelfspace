@@ -21,6 +21,5 @@
 .inactive,
 .inactive:visited {
   color: blue;
-  font-weight: 200;
-  font-style: italic;
+  font-weight: 400;
 }
