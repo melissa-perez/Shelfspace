@@ -2,11 +2,11 @@
 
 ## Description
 
-This React + Vite application is a book tracking app that utilizes the Open Libtary API. Users can search book titles and add them to their list. Once added, they can be viewed, deleted, or have their reading status updated. The list is stored in local storage on the web browser. The reading status stats are displayed on the home page.
+This React + Vite application is a book tracking app that utilizes the Open Library API. Users can search book titles and add them to their list. Once added, they can be viewed, deleted, or have their reading status updated. The list is stored in local storage on the web browser. The reading status stats are displayed on the home page.
 
 ## Dependencies
 
-There are dependencies that manipulate the DOM directly. But this application uses:
+There are no dependencies that manipulate the DOM directly. But this application uses:
 - `react`
 - `react-dom`
 - `react-router`
