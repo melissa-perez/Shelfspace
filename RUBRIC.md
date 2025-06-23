@@ -78,9 +78,9 @@
   - [x] 4 conditionally rendered components or elements.
   - [x] 1 controlled component form with at least 1 validated field.
   - [x] 2 `useEffect` calls.
-  - [ ] 1 `useCallback`.
+  - [x] 1 `useCallback`.
 - [x] All dependency arrays for hooks are accurate for their use case.
-- [ ] `useEffect` calls should return a cleanup function as appropriate.
+- [x] `useEffect` calls should return a cleanup function as appropriate.
 - [x] Any array of rendered components must include a unique `key` props.
   - [x] Keys must not be derived from the item's index.
 

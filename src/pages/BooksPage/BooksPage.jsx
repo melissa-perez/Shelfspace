@@ -4,7 +4,7 @@ import { BookshelfContext } from '../../context/BookshelfContext';
 import BookSearch from '../../features/search/BookSearch/BookSearch';
 
 import booksPageStyles from './BooksPage.module.css';
-import BookList from '../../features/book/BookList/BookList';
+import BookList from '../../shared/BookList/BookList';
 
 function BooksPage() {
   const { bookshelf } = useContext(BookshelfContext);

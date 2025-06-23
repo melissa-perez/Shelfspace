@@ -1,4 +1,4 @@
-import BookList from '../book/BookList/BookList';
+import BookList from '../../shared/BookList/BookList';
 
 function BookResults({ isLoading, results }) {
   return (

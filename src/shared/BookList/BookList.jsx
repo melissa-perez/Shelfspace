@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router';
 
-import BookCard from '../BookCard/BookCard';
+import BookCard from '../../features/book/BookCard/BookCard';
 
-import '../../../index.css';
+import '../../index.css';
 import bookListStyles from './BookList.module.css';
 
 function BookList({
