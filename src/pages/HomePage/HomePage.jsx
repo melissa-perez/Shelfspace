@@ -22,7 +22,7 @@ function HomePage() {
       <p>Progress bar would go here.</p>
       <img
         className={homePageStyles.hero}
-        src="susan-q-yin-books-unsplash.jpg"
+        src="/src/assets/susan-q-yin-books-unsplash.jpg"
         alt="Bookshelfs with books in a library setting"
       />
     </div>

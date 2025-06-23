@@ -1,4 +1,3 @@
-
 # Final Project Checklist
 
 ## General
@@ -65,34 +64,34 @@
 
 ## Demonstrates Understanding of React Concepts
 
-- [ ] The browser's page should never refresh during user interaction.
-- [ ] All components should be functional (no class-based components).
-- [ ] Use only React-compatible props.
-- [ ] State should never be mutated.
-- [ ] Components should return valid JSX.
-- [ ] The DOM should never be directly accessed or manipulated unless required by a 3rd-party library.
-  - [ ] Make a note of any libraries that do this in the README.
-- [ ] All communication with external data sources should be done asynchronously.
-- [ ] Project uses at least:
-  - [ ] 1 component that takes `children` props
+- [x] The browser's page should never refresh during user interaction.
+- [x] All components should be functional (no class-based components).
+- [x] Use only React-compatible props.
+- [x] State should never be mutated.
+- [x] Components should return valid JSX.
+- [x] The DOM should never be directly accessed or manipulated unless required by a 3rd-party library.
+  - [x] Make a note of any libraries that do this in the README.
+- [x] All communication with external data sources should be done asynchronously.
+- [x] Project uses at least:
+  - [x] 1 component that takes `children` props
   - [ ] 2 re-usable components each containing 2 or more html elements/sub-components + uses props
   - [ ] 4 conditionally rendered components or elements.
-  - [ ] 1 controlled component form with at least 1 validated field.
-  - [ ] 2 `useEffect` calls.
+  - [x] 1 controlled component form with at least 1 validated field.
+  - [x] 2 `useEffect` calls.
   - [ ] 1 `useCallback`.
-- [ ] All dependency arrays for hooks are accurate for their use case.
+- [x] All dependency arrays for hooks are accurate for their use case.
 - [ ] `useEffect` calls should return a cleanup function as appropriate.
-- [ ] Any array of rendered components must include a unique `key` props.
-  - [ ] Keys must not be derived from the item's index.
+- [x] Any array of rendered components must include a unique `key` props.
+  - [x] Keys must not be derived from the item's index.
 
 ## Uses React-Router for Routing
 
-- [ ] react-router is installed in the project.
-- [ ] The `App` component instance in main.jsx is wrapped with a `BrowserRouter` instance.
-- [ ] Includes at least 2 routes.
-- [ ] All `Route` instances use components in the `pages/` directory for their element props.
-- [ ] Include a wildcard route with a "Not Found" page.
-- [ ] Uses `NavLink` instances for global navigation (can use `Link` instances elsewhere)
+- [x] react-router is installed in the project.
+- [x] The `App` component instance in main.jsx is wrapped with a `BrowserRouter` instance.
+- [x] Includes at least 2 routes.
+- [x] All `Route` instances use components in the `pages/` directory for their element props.
+- [x] Include a wildcard route with a "Not Found" page.
+- [x] Uses `NavLink` instances for global navigation (can use `Link` instances elsewhere)
 
 ## Behavior
 
@@ -101,28 +100,28 @@
 - [x] Installs without error (other than minor package updates)
 - [x] Application starts without errors.
 - [x] On loading, application performs a network request or interacts a browser storage mechanism to retrieve data used in app.
-  - [ ] Loading status is displayed to user in UI.
-  - [ ] *Reviewers need to be able to access whatever resource is used with minimal setup!*
-    - [ ] Any publicly accessible APIs used must be open for anonymous use or free to sign up for.
-    - [ ] If a local server is used:
-      - [ ] **Warning: mentors will not be able to assist with troubleshooting any server issues** so this option is best for those with adequate experience!
-      - [ ] it must use Node.js as a runtime (no Deno, Bun, Python, Ruby, PHP etc.)
-      - [ ] it must run error-free
-      - [ ] A link to its repo and setup/running instructions are included in the project's README
+  - [x] Loading status is displayed to user in UI.
+  - [x] _Reviewers need to be able to access whatever resource is used with minimal setup!_
+    - [x] Any publicly accessible APIs used must be open for anonymous use or free to sign up for.
+    - [x] If a local server is used:
+      - [x] **Warning: mentors will not be able to assist with troubleshooting any server issues** so this option is best for those with adequate experience!
+      - [x] it must use Node.js as a runtime (no Deno, Bun, Python, Ruby, PHP etc.)
+      - [x] it must run error-free
+      - [x] A link to its repo and setup/running instructions are included in the project's README
 
 ### Functionality
 
-- [ ] All components and any user interactions should be error-free (excluding anything beyond student's control, such as API uptime). Warnings are acceptable.
+- [x] All components and any user interactions should be error-free (excluding anything beyond student's control, such as API uptime). Warnings are acceptable.
 - [ ] The app should never crash.
-- [ ] StrictMode must remain in place in main.jsx
-- [ ] Form inputs and labels must be properly associated with each other.
-- [ ] Any foreseeable network or process errors must be caught and communicated to the user, as appropriate, through the UI.
-- [ ] App allows user to interact with data central to the purpose of the app.
-  - [ ] Create
-  - [ ] Read
+- [x] StrictMode must remain in place in main.jsx
+- [x] Form inputs and labels must be properly associated with each other.
+- [x] Any foreseeable network or process errors must be caught and communicated to the user, as appropriate, through the UI.
+- [x] App allows user to interact with data central to the purpose of the app.
+  - [x] Create
+  - [x] Read
   - [ ] Update
   - [ ] Delete (optional)
-- [ ] Persists data using an API and/or Local Storage or IndexedDB.
+- [x] Persists data using an API and/or Local Storage or IndexedDB.
 
 ## Appearance/UX
 
