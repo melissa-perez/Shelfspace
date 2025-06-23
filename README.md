@@ -20,7 +20,7 @@ There are no dependencies that manipulate the DOM directly. But this application
 
 ## API connection
 
-There are no environment variables required to set-up for Open Library. Just search using the input bar.
+There are no environment variables required for Open Library access. Just search book titles using the input bar.
 
 ## Credentials
 
