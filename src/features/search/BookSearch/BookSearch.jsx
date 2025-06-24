@@ -9,7 +9,7 @@ function BookSearch() {
   const [localTitle, setLocalTitle] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('aa');
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     const debounce = setTimeout(() => {
