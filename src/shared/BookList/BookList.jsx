@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router';
+import { useSearchParams } from 'react-router';
 
 import BookCard from '../../features/book/BookCard/BookCard';
 
@@ -14,33 +14,39 @@ function BookList({
   queryKey,
 }) {
   const key = queryKey || 'page';
-  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const itemsPerPage = 10;
   const rawPage = parseInt(searchParams.get(key) || '1', 10);
-  const indexOfFirstBook = (rawPage - 1) * itemsPerPage;
-  const totalPages = Math.ceil(results.length / itemsPerPage);
+  const totalPages = Math.max(1, Math.ceil(results.length / itemsPerPage));
+  const currentPage = Math.min(Math.max(rawPage, 1), totalPages);
+  const indexOfFirstBook = (currentPage - 1) * itemsPerPage;
   const currentBooks = results.slice(
     indexOfFirstBook,
     indexOfFirstBook + itemsPerPage
   );
+
   useEffect(() => {
     if (results.length === 0) return;
-    if (totalPages > 0) {
-      if (isNaN(rawPage) || rawPage < 1 || rawPage > totalPages) {
-        navigate('/');
-      }
+    if (rawPage !== currentPage) {
+      const params = new URLSearchParams(searchParams);
+      params.set(key, currentPage.toString());
+      setSearchParams(params);
     }
-  }, [rawPage, totalPages, navigate, results]);
+  }, [rawPage, currentPage, key, results, searchParams, setSearchParams]);
+
   const handlePreviousPage = () => {
-    if (rawPage > 1) {
-      setSearchParams({ [key]: (rawPage - 1).toString() });
+    if (currentPage > 1) {
+      const params = new URLSearchParams(searchParams);
+      params.set(key, (currentPage - 1).toString());
+      setSearchParams(params);
     }
   };
 
   const handleNextPage = () => {
-    if (rawPage < totalPages) {
-      setSearchParams({ [key]: (rawPage + 1).toString() });
+    if (currentPage < totalPages) {
+      const params = new URLSearchParams(searchParams);
+      params.set(key, (currentPage + 1).toString());
+      setSearchParams(params);
     }
   };
 
@@ -62,21 +68,22 @@ function BookList({
           </li>
         ))}
       </ul>
+
       {results.length > 0 && (
         <div className={`container ${bookListStyles.spacing}`}>
           <button
             onClick={handlePreviousPage}
-            disabled={rawPage === 1}
+            disabled={currentPage === 1}
             className={bookListStyles.button}
           >
             Previous
           </button>
           <span>
-            Page {rawPage} of {totalPages}
+            Page {currentPage} of {totalPages}
           </span>
           <button
             onClick={handleNextPage}
-            disabled={rawPage === totalPages}
+            disabled={currentPage === totalPages}
             className={bookListStyles.button}
           >
             Next
