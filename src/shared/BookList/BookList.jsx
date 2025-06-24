@@ -11,34 +11,39 @@ function BookList({
   showAddButton,
   showDeleteButton,
   showUpdateForm,
+  queryKey,
 }) {
+  const key = queryKey || 'page';
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
   const itemsPerPage = 10;
-  const currentPage = parseInt(searchParams.get('page') || '1', 10);
-  const indexOfFirstBook = (currentPage - 1) * itemsPerPage;
+  const rawPage = parseInt(searchParams.get(key) || '1', 10);
+  const indexOfFirstBook = (rawPage - 1) * itemsPerPage;
   const totalPages = Math.ceil(results.length / itemsPerPage);
   const currentBooks = results.slice(
     indexOfFirstBook,
     indexOfFirstBook + itemsPerPage
   );
   useEffect(() => {
+    if (results.length === 0) return;
     if (totalPages > 0) {
-      if (isNaN(currentPage) || currentPage < 1 || currentPage > totalPages) {
+      if (isNaN(rawPage) || rawPage < 1 || rawPage > totalPages) {
         navigate('/');
       }
     }
-  }, [currentPage, totalPages, navigate]);
+  }, [rawPage, totalPages, navigate, results]);
   const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setSearchParams({ page: (currentPage - 1).toString() });
+    if (rawPage > 1) {
+      setSearchParams({ [key]: (rawPage - 1).toString() });
     }
   };
+
   const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setSearchParams({ page: (currentPage + 1).toString() });
+    if (rawPage < totalPages) {
+      setSearchParams({ [key]: (rawPage + 1).toString() });
     }
   };
+
   return (
     <div>
       <ul className={bookListStyles.list}>
@@ -61,17 +66,17 @@ function BookList({
         <div className={`container ${bookListStyles.spacing}`}>
           <button
             onClick={handlePreviousPage}
-            disabled={currentPage === 1}
+            disabled={rawPage === 1}
             className={bookListStyles.button}
           >
             Previous
           </button>
           <span>
-            Page {currentPage} of {totalPages}
+            Page {rawPage} of {totalPages}
           </span>
           <button
             onClick={handleNextPage}
-            disabled={currentPage === totalPages}
+            disabled={rawPage === totalPages}
             className={bookListStyles.button}
           >
             Next

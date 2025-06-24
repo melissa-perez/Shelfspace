@@ -11,6 +11,7 @@ function BookResults({ isLoading, results }) {
           showAddButton={true}
           showDeleteButton={false}
           showUpdateForm={false}
+           queryKey="books1"
         />
       ) : (
         <></>

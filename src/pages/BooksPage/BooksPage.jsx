@@ -19,6 +19,7 @@ function BooksPage() {
         showAddButton={false}
         showDeleteButton={true}
         showUpdateForm={true}
+        queryKey="books2"
       />
     </div>
   );
