@@ -22,7 +22,7 @@ function BookCard({
     <div className={`container ${bookCardStyles.card}`}>
       {coverImage !== null ? (
         <img
-          src={`https://covers.openlibrary.org/b/id/${coverImage}-S.jpg`}
+          src={`https://covers.openlibrary.org/b/id/${coverImage}-M.jpg`}
           alt={`Book cover image of ${title}`}
         />
       ) : (
