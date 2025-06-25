@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
-
 import BookResults from '../BookResults';
-
 import bookSearchStyles from './BookSearch.module.css';
 
 function BookSearch() {
@@ -20,41 +18,45 @@ function BookSearch() {
 
   useEffect(() => {
     if (title === '') return;
+
     const fetchBooks = async () => {
       setIsLoading(true);
       const url = `https://openlibrary.org/search.json?title=${title}`;
       const options = {
         method: 'GET',
       };
+
       try {
         const response = await fetch(url, options);
         if (!response.ok) {
-          const errorMsg =
-            response?.message ||
-            'Something went wrong with the request. Try again later.';
-          throw new Error(errorMsg);
+          throw new Error(
+            'Something went wrong with the request. Try again later.'
+          );
         }
         const { docs } = await response.json();
-        const fetchedBooks = docs.map((book) => {
-          const item = {
-            bookKey: book.key,
-            title: book.title || 'Untitled',
-            author: book.author_name?.[0] || 'Unknown Author',
-            coverImage: book.cover_i || null,
-          };
-          return item;
-        });
+        const fetchedBooks = docs.map((book) => ({
+          bookKey: book.key,
+          title: book.title || 'Untitled',
+          author: book.author_name?.[0] || 'Unknown Author',
+          coverImage: book.cover_i || null,
+        }));
         setResults(fetchedBooks);
         setErrorMessage('');
       } catch (error) {
-        console.error(error);
-        setErrorMessage(error);
+        console.error('Fetch error:', error);
+        const message =
+          typeof error === 'string'
+            ? error
+            : error?.message || 'An unknown error occurred';
+        setErrorMessage(message);
       } finally {
         setIsLoading(false);
       }
     };
+
     fetchBooks();
   }, [title]);
+
   return (
     <div className={bookSearchStyles.searchContainer}>
       <form
@@ -69,9 +71,7 @@ function BookSearch() {
           id={'bookInput'}
           type="text"
           value={localTitle}
-          onChange={(event) => {
-            setLocalTitle(event.target.value);
-          }}
+          onChange={(event) => setLocalTitle(event.target.value)}
           placeholder="via Open Library API..."
         />
         <button
@@ -86,26 +86,28 @@ function BookSearch() {
           Clear
         </button>
       </form>
+
       {!isLoading && results.length === 0 && title !== '' && (
         <p className={bookSearchStyles.errorMessage}>
-          🚫No books found. Try a different book title.
+          🚫 No books found. Try a different book title.
         </p>
       )}
-      {errorMessage && (
+
+      {typeof errorMessage === 'string' && errorMessage && (
         <div>
           <p className={bookSearchStyles.errorMessage}>
-            An error occured: {errorMessage}
+            An error occurred: {errorMessage}
           </p>
           <button
+            type="button"
             className={bookSearchStyles.button}
-            onClick={() => {
-              setErrorMessage('');
-            }}
+            onClick={() => setErrorMessage('')}
           >
             Dismiss Error Message
           </button>
         </div>
       )}
+
       <BookResults isLoading={isLoading} results={results} />
     </div>
   );
