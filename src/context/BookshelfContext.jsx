@@ -20,10 +20,11 @@ function BookshelfProvider({ children }) {
   };
   const deleteBookInShelf = (bookKeyToDelete) => {
     const updated = bookshelf.filter(
-      (book) => book.bookKey !== bookKeyToDelete.bookKey
+      (book) => book.bookKey !== bookKeyToDelete
     );
     window.alert('Removed book from bookshelf.');
     setBookshelf(updated);
+    localStorage.setItem('bookshelf', JSON.stringify(updated));
   };
   const updateBookStatusInShelf = (bookKeyToUpdate, status) => {
     const bookIndex = bookshelf.findIndex(
@@ -56,7 +57,7 @@ function BookshelfProvider({ children }) {
         addBookToShelf,
         deleteBookInShelf,
         updateBookStatusInShelf,
-        stats
+        stats,
       }}
     >
       {children}

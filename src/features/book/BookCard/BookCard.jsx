@@ -51,11 +51,7 @@ function BookCard({
         {showDeleteButton && (
           <Button
             title={'Remove from bookshelf'}
-            handler={() =>
-              deleteBookInShelf({
-                bookKey,
-              })
-            }
+            handler={() => deleteBookInShelf(bookKey)}
           />
         )}
         {showUpdateForm && <BookForm bookKey={bookKey} status={status} />}
