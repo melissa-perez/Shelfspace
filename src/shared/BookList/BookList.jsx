@@ -72,6 +72,7 @@ function BookList({
       {results.length > 0 && (
         <div className={`container ${bookListStyles.spacing}`}>
           <button
+            type="button"
             onClick={handlePreviousPage}
             disabled={currentPage === 1}
             className={bookListStyles.button}
@@ -82,6 +83,7 @@ function BookList({
             Page {currentPage} of {totalPages}
           </span>
           <button
+            type="button"
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
             className={bookListStyles.button}

@@ -57,7 +57,10 @@ function BookSearch() {
   }, [title]);
   return (
     <div className={bookSearchStyles.searchContainer}>
-      <form className={bookSearchStyles.form}>
+      <form
+        className={bookSearchStyles.form}
+        onSubmit={(event) => event.preventDefault()}
+      >
         <label className={bookSearchStyles.label} htmlFor={'bookInput'}>
           Book Title
         </label>
