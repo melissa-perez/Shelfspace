@@ -19,3 +19,9 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.bookCover {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+}
